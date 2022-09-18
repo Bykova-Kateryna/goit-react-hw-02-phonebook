@@ -26,7 +26,11 @@ class PhoneBookForm extends React.Component {
   };
 
   findName = name => {
-    return this.props.dataArr.find(arr => arr.name === name);
+    return this.props.dataArr.find(arr => {
+      const nameInArr = arr.name.toLocaleLowerCase();
+      const newName = name.toLocaleLowerCase();
+      return nameInArr === newName;
+    });
   };
 
   handleSubmit = event => {
@@ -88,7 +92,7 @@ class PhoneBookForm extends React.Component {
 export default PhoneBookForm;
 
 PhoneBookForm.propTypes = {
-  submitData: PropTypes.func,
+  submitData: PropTypes.func.isRequired,
   dataArr: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,

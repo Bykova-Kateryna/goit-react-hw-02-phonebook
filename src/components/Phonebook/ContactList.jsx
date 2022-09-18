@@ -7,17 +7,18 @@ import {
 } from './Phonebook.styled';
 
 export const ContactList = ({ array, deleteNumber }) => {
-  const generateContactList = arr => {
-    return arr.map(item => (
-      <ContactListItem key={item.id}>
-        {item.name}: {item.number}
-        <DeleteBtn type="button" onClick={() => deleteNumber(item.id)}>
-          Delete
-        </DeleteBtn>
-      </ContactListItem>
-    ));
-  };
-  return <ContactListSection>{generateContactList(array)}</ContactListSection>;
+  return (
+    <ContactListSection>
+      {array.map(item => (
+        <ContactListItem key={item.id}>
+          {item.name}: {item.number}
+          <DeleteBtn type="button" onClick={() => deleteNumber(item.id)}>
+            Delete
+          </DeleteBtn>
+        </ContactListItem>
+      ))}
+    </ContactListSection>
+  );
 };
 
 ContactList.propTypes = {

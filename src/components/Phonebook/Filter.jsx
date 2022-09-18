@@ -26,6 +26,6 @@ export const Filter = ({ search, changeValue }) => {
 };
 
 Filter.propTypes = {
-  search: PropTypes.elementType,
-  changeValue: PropTypes.func,
+  search: PropTypes.string.isRequired,
+  changeValue: PropTypes.func.isRequired,
 };
