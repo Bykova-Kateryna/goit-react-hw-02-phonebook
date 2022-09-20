@@ -29,4 +29,5 @@ ContactList.propTypes = {
       number: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     })
   ),
+  deleteNumber: PropTypes.func,
 };
